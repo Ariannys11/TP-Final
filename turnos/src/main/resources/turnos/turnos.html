@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turnos</title>
+    <!-- Vinculación de Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Vinculación de tu archivo CSS personalizado -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Turnos</h1>
+    </header>
+
+    <main class="container mt-5">
+        <h2>Gestionar Turnos</h2>
+        
+        <!-- Botones para gestionar turnos -->
+        <button id="ver-turnos" class="btn btn-info mb-3">Ver Turnos</button>
+        <button id="solicitar-turno-btn" class="btn btn-primary mb-3">Solicitar Turno</button>
+        
+        <!-- Formulario de agendar turnos (por defecto oculto) -->
+        <div id="formulario-turno" style="display: none;">
+            <h3>Agendar un Turno</h3>
+            <form>
+                <div class="form-group">
+                    <label for="fecha">Fecha:</label>
+                    <input type="date" class="form-control" id="fecha" name="fecha" required>
+                </div>
+                <div class="form-group">
+                    <label for="hora">Hora:</label>
+                    <input type="time" class="form-control" id="hora" name="hora" required>
+                </div>
+                <button type="submit" class="btn btn-success">Confirmar Turno</button>
+            </form>
+        </div>
+
+        <!-- Sección para ver los turnos existentes (ocultos por defecto) -->
+        <div id="ver-turnos-section" style="display: none;">
+            <h3>Turnos Agendados</h3>
+            <p>No tienes turnos agendados.</p>
+        </div>
+    </main>
+
+    <!-- Vinculación de Bootstrap JS y dependencias -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Vinculación de tu archivo JS personalizado -->
+    <script src="turnos.js"></script> <!-- Aquí va el script relacionado solo con turnos -->
+</body>
+</html>

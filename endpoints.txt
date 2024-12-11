@@ -1,0 +1,149 @@
+1. Endpoints para Pacientes
+Obtener todos los pacientes
+    • Método: GET
+    • URL: http://localhost:8080/api/pacientes
+Obtener paciente por ID
+    • Método: GET
+    • URL: http://localhost:8080/api/pacientes/{id} (Reemplaza {id} por el ID del paciente)
+Crear un nuevo paciente
+    • Método: POST
+    • URL: http://localhost:8080/api/pacientes
+      {
+        "nombre": "Juan",
+        "apellido": "Pérez",
+        "dni": "12345678",
+        "telefono": 123456789
+      }
+Actualizar un paciente
+    • Método: PUT
+    • URL: http://localhost:8080/api/pacientes/{id} (Reemplaza {id} por el ID del paciente)
+    • 
+{
+  "nombre": "Juan",
+  "apellido": "Pérez",
+  "dni": "87654321",
+  "telefono": 987654321
+ }
+Eliminar un paciente
+    • Método: DELETE
+    • URL: http://localhost:8080/api/pacientes/{id} (Reemplaza {id} por el ID del paciente)
+
+
+2. Endpoints para Nutricionistas
+Obtener todos los nutricionistas
+    • Método: GET
+    • URL: http://localhost:8080/api/nutricionistas
+Obtener nutricionista por especialidad
+    • Método: GET
+    • URL: http://localhost:8080/api/nutricionistas/especialidad/{especialidad} (Reemplaza {especialidad} por la especialidad que deseas buscar)
+Crear un nuevo nutricionista
+    • Método: POST
+    • URL: http://localhost:8080/api/nutricionistas
+{
+  "nombre": "María",
+  "apellido": "Gómez",
+  "matricula": "ABC123",
+  "email": "maria@nutricionista.com",
+  "especialidad": "Dietética"
+}
+
+Actualizar un nutricionista
+    • Método: PUT
+    • URL: http://localhost:8080/api/nutricionistas/{id} (Reemplaza {id} por el ID del nutricionista)
+    • 
+{
+  "nombre": "María",
+  "apellido": "Gómez",
+  "matricula": "ABC123",
+  "email": "maria@nutricionista.com",
+  "especialidad": "Nutrición Deportiva"
+}
+
+Eliminar un nutricionista
+    • Método: DELETE
+    • URL: http://localhost:8080/api/nutricionistas/{id} (Reemplaza {id} por el ID del nutricionista)
+
+    
+3. Endpoints para Turnos
+Obtener todos los turnos
+    • Método: GET
+    • URL: http://localhost:8080/api/turnos
+Reservar un Turno
+    • Método: PUT
+    • URL: /api/turnos/{turnoId}/reservar?pacienteId={pacienteId}
+    • Ejemplo: /api/turnos/1/reservar?pacienteId=10
+
+Cancelar Reserva
+    • Método: PUT
+    • URL: /api/turnos/{turnoId}/cancelar
+    • Ejemplo: /api/turnos/1/cancelar
+    • 
+Obtener turnos disponibles por nutricionista
+    • Método: GET
+    • URL: /api/turnos/disponibles/{nutricionistaId}
+    • Ejemplo: /api/turnos/disponibles/1 
+Reservar un Turno
+    • Método: PUT
+    • URL: /api/turnos/{turnoId}/reservar?pacienteId={pacienteId}
+    • Ejemplo: /api/turnos/1/reservar?pacienteId=10
+    • Respuesta esperada: El turno con estado "Reservado" y el paciente asignado.
+Cancelar Reserva
+    • Método: PUT
+    • URL: /api/turnos/{turnoId}/cancelar
+    • Ejemplo: /api/turnos/1/cancelar
+    • Respuesta esperada: El turno con estado "Disponible" y sin paciente asignado.
+
+Crear un nuevo turno
+    • Método: POST
+    • URL: http://localhost:8080/api/turnos/crear
+{
+  "nutricionistaId": 1,
+  "fecha": "2024-11-25",
+  "hora": "10:30"
+}
+
+
+
+
+4. Endpoints para Facturación
+Obtener todas las facturas
+    • Método: GET
+    • URL: http://localhost:8080/api/facturacion
+Obtener factura por ID
+    • Método: GET
+    • URL: http://localhost:8080/api/facturacion/{id} (Reemplaza {id} por el ID de la factura)
+Crear una nueva factura
+    • Método: POST
+    • URL: http://localhost:8080/api/facturacion
+{
+  "monto": 2000.0,
+  "metodoPago": "Tarjeta de Crédito",
+  "turno": {
+    "id": 1
+  },
+  "paciente": {
+    "id": 1
+  }
+}
+
+Actualizar una factura
+    • Método: PUT
+    • URL: http://localhost:8080/api/facturacion/{id} (Reemplaza {id} por el ID de la factura)
+    • 
+{
+  "monto": 2200.0,
+  "metodoPago": "Efectivo",
+  "turno": {
+    "id": 1
+  },
+  "paciente": {
+    "id": 1
+  }
+}
+
+Eliminar una factura
+    • Método: DELETE
+    • URL: http://localhost:8080/api/facturacion/{id} (Reemplaza {id} por el ID de la factura)
+
+
+

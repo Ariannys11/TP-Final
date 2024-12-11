@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="recetas"></div>
+
+<script>
+fetch('www.themealdb.com/api/json/v1/1/categories.php')
+  .then(response => response.json())
+  .then(data => {
+    const recetasDiv = document.getElementById('recetas');
+    data.recipes.forEach(recipe => {
+      const recetaElement = document.createElement('div');
+      recetaElement.innerHTML = `
+        <h3>${recipe.title}</h3>
+        <img src="${recipe.image}" alt="${recipe.title}">
+        <p>${recipe.summary}</p>
+      `;
+      recetasDiv.appendChild(recetaElement);
+    });
+  })
+  .catch(error => {
+    console.error('Error al obtener recetas:', error);
+  });
+</script>
+
+</body>
+</html>
